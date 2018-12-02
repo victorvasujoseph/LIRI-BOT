@@ -19,6 +19,7 @@ var getSongInfo = function(track){
         var name = song.name;
         var preview = song.preview_url;
         var albumName = song.album.name;
+        
 
         console.log('Artist : ' + artist); 
         console.log('Song Name : ' + name); 

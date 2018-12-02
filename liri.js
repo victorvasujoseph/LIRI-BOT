@@ -1,5 +1,6 @@
 var spotify = require('./spotify');
-var concert = require('./band')
+var concert = require('./band');
+var movie = require('./movie')
 
 var command = process.argv[2];
 var value = process.argv.slice(3).join(" ");
@@ -11,7 +12,7 @@ if (command === "concert-this") {
 } else if (command === "spotify-this-song") {
     spotify.getSongInfo(value);
 } else if (command === "movie-this") {
-    console.log(value);
+    movie.getMovieInfo(value);
 } else if (command === "do-what-it-says") {
     console.log(value);
 }
