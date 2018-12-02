@@ -1,6 +1,7 @@
 require("dotenv").config();
 var Spotify = require('node-spotify-api');
-var keys = require('./keys')
+var keys = require('./keys');
+var logger = require('./logger');
  
 var spotify = new Spotify(keys.spotify);
 
@@ -20,11 +21,14 @@ var getSongInfo = function(track){
         var preview = song.preview_url;
         var albumName = song.album.name;
         
+        var result = ` \n Artist : ${artist} \n
+        Song Name : ${name} \n
+        Song Preview : ${preview} \n
+        Album : albumName \n`;
 
-        console.log('Artist : ' + artist); 
-        console.log('Song Name : ' + name); 
-        console.log('Song Preview : ' + preview);
-        console.log('Album : ' + albumName);
+        logger.logInput(result);
+        logger.logPartition();
+        console.log(result);
 
     })
     .catch(function(err) {

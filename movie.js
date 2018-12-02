@@ -1,5 +1,6 @@
 var axios = require('axios');
 var encode = require('urlencode');
+var logger = require('./logger');
 
 var getMovieInfo = function(movie){
 
@@ -23,7 +24,18 @@ var getMovieInfo = function(movie){
         var plot = data.Plot;
         var actors = data.Actors;
 
-        console.log(`Title : ${title}, Release Year : ${releaseYear}, ${IMDBrating}, ${rottenTomatoeRating}, ${country}, ${language}, ${plot}, ${actors}`);
+        var result = `\n Title : ${title} \n 
+        Release Year : ${releaseYear} \n 
+        IMDB Rating : ${IMDBrating} \n 
+        Rotten Tomatoes Rating : ${rottenTomatoeRating} \n 
+        Country : ${country} \n
+        Language : ${language} \n 
+        Plot : ${plot} \n 
+        Actor : ${actors}\n`;
+
+        logger.logInput(result);
+        logger.logPartition();
+        console.log(result);
     })
     .catch(err => {
       console.log(err);

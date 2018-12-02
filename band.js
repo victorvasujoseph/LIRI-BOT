@@ -1,6 +1,7 @@
 var axios = require('axios');
 var encode = require('urlencode');
 var moment = require('moment');
+var logger = require('./logger');
 
 var getBandInfo = function(artist) {
   if (artist === undefined || artist.length === 0) {
@@ -17,9 +18,14 @@ var getBandInfo = function(artist) {
       var venue = data.venue;
       var dateTime = moment(data.datetime);
 
-      console.log(`venue : ${venue.name}`);
-      console.log(`location : ${venue.country},${venue.city} - ${venue.region}`);
-      console.log(`date : ${dateTime}`);
+      var result = ` \n venue : ${venue.name} \n
+      location : ${venue.country},${venue.city} - ${venue.region} \n
+      date : ${dateTime} \n`;
+
+      console.log(result);
+      logger.logInput(result);
+      logger.logPartition();
+
 
     })
 
