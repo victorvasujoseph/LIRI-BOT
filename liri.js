@@ -4,11 +4,9 @@ var movie = require('./movie')
 
 var command = process.argv[2];
 var value = process.argv.slice(3).join(" ");
-console.log(value);
 
 if (command === "concert-this") {
     concert.getBandInfo(value)
-    console.log(value);
 } else if (command === "spotify-this-song") {
     spotify.getSongInfo(value);
 } else if (command === "movie-this") {
