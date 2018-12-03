@@ -24,7 +24,7 @@ var getSongInfo = function(track){
         var result = ` \n Artist : ${artist} \n
         Song Name : ${name} \n
         Song Preview : ${preview} \n
-        Album : albumName \n`;
+        Album : ${albumName} \n`;
 
         logger.logInput(result);
         logger.logPartition();
